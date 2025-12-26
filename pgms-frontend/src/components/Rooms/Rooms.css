@@ -1,0 +1,247 @@
+.room-management {
+    padding: 20px;
+}
+
+.room-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.room-header h1 {
+    color: #333;
+    font-size: 28px;
+}
+
+.room-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.room-stats span {
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.stat-total {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.stat-available {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.stat-occupied {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.rooms-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.rooms-grid-large {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.room-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    border: 3px solid;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.room-card.selected {
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.5);
+}
+
+.room-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.room-card-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.room-status-badge {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+}
+
+.room-occupancy {
+    margin-bottom: 10px;
+}
+
+.occupancy-bar {
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.occupancy-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.occupancy-text {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+}
+
+.room-info {
+    font-size: 12px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.info-row:last-child {
+    margin-bottom: 0;
+}
+
+.info-row span:first-child {
+    color: #666;
+}
+
+.text-success {
+    color: #28a745 !important;
+    font-weight: 600;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+    font-weight: 600;
+}
+
+.room-details {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.details-header h2 {
+    color: #333;
+    font-size: 22px;
+    margin: 0;
+}
+
+.guests-list h3 {
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.guest-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.guest-item:last-child {
+    margin-bottom: 0;
+}
+
+.guest-info h4 {
+    margin: 0 0 8px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.guest-info p {
+    margin: 0 0 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.guest-info p:last-child {
+    margin-bottom: 0;
+}
+
+.empty-room {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.empty-room p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+    .rooms-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .rooms-grid-large {
+        max-height: none;
+        overflow-y: visible;
+    }
+}
+
+@media (max-width: 768px) {
+    .room-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .room-stats {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .rooms-grid-large {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
