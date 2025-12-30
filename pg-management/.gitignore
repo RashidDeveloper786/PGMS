@@ -35,5 +35,5 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
-.vscode/
+.vscode/*
 pg-management/.vscode/
