@@ -16,7 +16,7 @@ import './App.css';
 // Private Route Component - Redirects to landing page if not authenticated
 const PrivateRoute = ({ children }) => {
   const isAuthenticated = authService.isAuthenticated();
-  return isAuthenticated ? children : <Navigate to="/" />; // Changed to "/" (landing page)
+  return isAuthenticated ? children : <Navigate to="/" />; 
 };
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
   const handleLogout = () => {
     authService.logout();
     setIsLoggedIn(false);
-    navigate('/'); // Navigate to landing page after logout
+    navigate('/'); 
   };
 
   return (
@@ -61,13 +61,11 @@ function App() {
         {isLoggedIn && <Sidebar onLogout={handleLogout} />}
         <div className="content guest">
           <Routes>
-            {/* Public Routes */}
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={
               isLoggedIn ? <Navigate to="/dashboard" /> : <Login setIsLoggedIn={handleLogin} />
             } />
             
-            {/* Protected Routes - Redirect to landing page if not logged in */}
             <Route path="/dashboard" element={
               <PrivateRoute>
                 <Dashboard />
@@ -110,7 +108,6 @@ function App() {
               </PrivateRoute>
             } />
             
-            {/* Catch all route - redirect based on auth status */}
             <Route path="*" element={
               isLoggedIn ? <Navigate to="/dashboard" /> : <Navigate to="/" />
             } />
@@ -121,7 +118,6 @@ function App() {
   );
 }
 
-// Wrap App with Router
 export default function AppWrapper() {
   return (
     <Router>
