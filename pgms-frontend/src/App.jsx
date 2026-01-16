@@ -13,7 +13,6 @@ import Sidebar from './components/Layout/Sidebar';
 import * as authService from './services/auth';
 import './App.css';
 
-// Private Route Component - Redirects to landing page if not authenticated
 const PrivateRoute = ({ children }) => {
   const isAuthenticated = authService.isAuthenticated();
   return isAuthenticated ? children : <Navigate to="/" />; 
@@ -24,7 +23,6 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check authentication on app load
     const checkAuth = () => {
       const authStatus = authService.isAuthenticated();
       setIsLoggedIn(authStatus);
@@ -32,7 +30,6 @@ function App() {
     
     checkAuth();
     
-    // Listen for storage changes
     const handleStorageChange = () => {
       checkAuth();
     };
