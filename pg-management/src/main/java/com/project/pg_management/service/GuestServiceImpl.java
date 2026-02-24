@@ -40,7 +40,7 @@ public class GuestServiceImpl implements GuestService {
         Room room = roomRepo.findByRoomNumber(roomNumber)
                 .orElseThrow(() -> new RuntimeException("Room not found"));
 
-        List<Guest> guests = room.getGuests(); // get guests directly from Room entity
+        List<Guest> guests = room.getGuests(); 
 
         List<GuestDto> guestDtos = guests.stream().map(guest -> convertToGuestDto(guest)).collect(Collectors.toList());
         return guestDtos;
@@ -79,7 +79,6 @@ public class GuestServiceImpl implements GuestService {
 
 
 
-    // Add these methods to GuestServiceImpl class
 
 @Override
 public GuestDto updatePaymentStatus(Long guestId, String month, String status) {
@@ -99,13 +98,10 @@ public GuestDto getGuestById(Long id) {
 
 @Override
 public List<GuestDto> getDashboardStats() {
-    // This returns all guests for dashboard
     return getAllGuests();
 }
 
 
-    // Manual Model Mapper
-    // Update the convertToGuestDto method in GuestServiceImpl.java
     public GuestDto convertToGuestDto(Guest guest) {
         GuestDto dto = new GuestDto();
         dto.setId(guest.getId());
@@ -113,7 +109,7 @@ public List<GuestDto> getDashboardStats() {
         dto.setEmail(guest.getEmail());
         dto.setPhone(guest.getPhone());
         dto.setRoomNumber(guest.getRoom() != null ? guest.getRoom().getRoomNumber() : null);
-        dto.setPaymentStatus(guest.getPaymentStatus()); // Added this line
+        dto.setPaymentStatus(guest.getPaymentStatus());
 
         if (guest.getAdmitDate() != null) {
             dto.setAdmitDate(guest.getAdmitDate().toString());
@@ -127,7 +123,6 @@ public List<GuestDto> getDashboardStats() {
         RoomDto dto = new RoomDto();
         dto.setRoomNumber(room.getRoomNumber());
 
-        // Avoid recursive nesting
         List<GuestDto> guestDtos = room.getGuests().stream()
                 .map(guest -> {
                     GuestDto g = new GuestDto();

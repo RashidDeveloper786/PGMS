@@ -10,5 +10,5 @@ public class GuestDto {
     private String phone;
     private Integer roomNumber; 
     private String admitDate;
-    private String paymentStatus = "pending"; // Added field
+    private String paymentStatus = "pending"; 
 }

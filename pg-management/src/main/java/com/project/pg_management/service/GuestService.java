@@ -13,7 +13,6 @@ public interface GuestService {
     List<RoomDto> getAvailableRooms();
     List<GuestDto> getGuestByRoomNumber(int roomNumber);
     
-    // Add these new methods
     GuestDto updatePaymentStatus(Long guestId, String month, String status);
     GuestDto getGuestById(Long id);
     List<GuestDto> getDashboardStats();

@@ -17,7 +17,7 @@ public class Guest {
     private String email;
     private String phone;
     private LocalDate admitDate;
-    private String paymentStatus = "pending"; // Added field
+    private String paymentStatus = "pending"; 
 
     @ManyToOne
     @JoinColumn(name = "room_id")
